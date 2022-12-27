@@ -1,11 +1,38 @@
-<!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org" xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+﻿﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
 <head>
-    <title>Spring Security Example</title>
+  <meta charset="UTF-8">
+  <title>USERS</title>
 </head>
 <body>
-<h1>Welcome to Index PAGE!</h1>
+<h1>Table USERS</h1>
+<table>
+  <tr>
+    <th>ID</th>
+    <th>NAME</th>
+    <th>LASTNAME</th>
+    <th>AGE</th>
+    <th>EMAIL</th>
+    <th>#</th>
+  </tr>
+  <tr>
+  <tr th:each="user : ${userList}">
 
+    <td th:utext="${user.getId()}">id</td>
+    <td th:utext="${user.getUsername()}">user</td>
+    <td th:utext="${user.getUserlastname()}">lastname</td>
+    <td th:utext="${user.getAge()}">age</td>
+    <td th:utext="${user.getEmail()}">email</td>
+    <td> <a th:href="@{/users/{id}(id=${user.getId()})}"  > EDIT </a></td>
+  </tr>
+</table>
+<div>
+  <br/>
+  <hr>
+
+  <a th:href="@{http://localhost:8088/users/new}"> Create new User  </a>
+</div>
 
 </body>
 </html>
