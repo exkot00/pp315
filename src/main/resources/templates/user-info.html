@@ -17,14 +17,9 @@
 <br/>
 <hr/>
 
-<a th:href="@{/admin/user/{id}/edit(id=${user.getId()})}">Edit</a>
-
-<form th:method="DELETE" th:action="@{/admin/user/{id}(id=${user.getId()})}">
-    <input type="submit" value="delete">
-
-</form>
-
 <br>
 <button class="buttonLogout" onclick="window.location.href = '/logout';">Logout</button>
+
+
 </body>
 </html>

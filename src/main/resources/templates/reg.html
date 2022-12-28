@@ -2,10 +2,10 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Update User</title>
+    <title>Registration -  New User</title>
 </head>
 <body>
-<form th:method="PATCH" th:action="@{/admin/user/{id}(id=${user.getId()})}" th:object="${user}" >
+<form th:method="POST" th:action="@{/registration}" th:object="${user}" >
     <label for ="username">Enter Name: </label>
     <input type="text" th:field="*{username}" id="username"/>
     <br/>
@@ -18,10 +18,10 @@
     <label for ="email">Enter email: </label>
     <input type="text" th:field="*{email}" id="email"/>
     <br/>
-    <label for ="email">Enter login: </label>
+    <label for ="login">Enter login: </label>
     <input type="text" th:field="*{login}" id="login"/>
     <br/>
-    <label for ="email">Enter Pass: </label>
+    <label for ="email">Enter pass: </label>
     <input type="text" th:field="*{pass}" id="pass"/>
     <br/>
 
@@ -30,10 +30,11 @@
                th:text="${role.name}" th:value="${role.id}" class="m-2" />
     </th:block>
 
-    <input type="submit" value="Update"/>
+
+
+    <input type="submit" value="create"/>
 </form>
-<br>
-<button class="buttonLogout" onclick="window.location.href = '/logout';">Logout</button>
+
 
 </body>
 </html>

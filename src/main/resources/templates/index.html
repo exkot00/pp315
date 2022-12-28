@@ -1,4 +1,4 @@
-﻿﻿<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 <html lang="en">
 <head>
@@ -14,6 +14,9 @@
     <th>LASTNAME</th>
     <th>AGE</th>
     <th>EMAIL</th>
+    <th>LOGIN</th>
+    <th>Pass</th>
+    <th>ROLE</th>
     <th>#</th>
   </tr>
   <tr>
@@ -24,14 +27,19 @@
     <td th:utext="${user.getUserlastname()}">lastname</td>
     <td th:utext="${user.getAge()}">age</td>
     <td th:utext="${user.getEmail()}">email</td>
-    <td> <a th:href="@{/users/{id}(id=${user.getId()})}"  > EDIT </a></td>
+    <td th:utext="${user.getLogin()}">login</td>
+    <td th:utext="${user.getPass()}">Pass</td>
+    <td th:utext="${user.getRoles()}">role</td>
+    <td> <a th:href="@{/admin/user/{id}(id=${user.getId()})}"  > EDIT </a></td>
   </tr>
 </table>
 <div>
   <br/>
   <hr>
 
-  <a th:href="@{http://localhost:8088/users/new}"> Create new User  </a>
+  <a th:href="@{http://localhost:8088/admin/user/new}"> Create new User  </a>
+  <br>
+  <button class="buttonLogout" onclick="window.location.href = '/logout';">Logout</button>
 </div>
 
 </body>

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>U S E R - I N F O</title>
+</head>
+<body>
+<div>
+Профиль Пользователя
+</div>>
+
+<a th:href="@{/users/user/{id}/(id=${user.getId()})}">Информация о юзере</a>
+
+<br>
+<button class="buttonLogout" onclick="window.location.href = '/logout';">Logout</button>
+
+</form>
+</body>
+</html>
