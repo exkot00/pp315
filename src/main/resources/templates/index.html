@@ -29,7 +29,11 @@
     <td th:utext="${user.getEmail()}">email</td>
     <td th:utext="${user.getLogin()}">login</td>
     <td th:utext="${user.getPass()}">Pass</td>
-    <td th:utext="${user.getRoles()}">role</td>
+    <td>
+    <p th:each="role : ${user.getRoles()}">
+      <span th:text="${role.name}">Street</span>
+    </p>
+    </td>
     <td> <a th:href="@{/admin/user/{id}(id=${user.getId()})}"  > EDIT </a></td>
   </tr>
 </table>

@@ -13,7 +13,11 @@
 <p th:text="${user.getEmail()}"VALUE </p>
 <p th:text="${user.getLogin()}"VALUE </p>
 <p th:text="${user.getPass()}"VALUE </p>
-<p th:text="${user.getRoles()}"VALUE </p>
+<td>
+    <p th:each="role : ${user.getRoles()}">
+        <span th:text="${role.name}">Street</span>
+    </p>
+</td>
 <br/>
 <hr/>
 
