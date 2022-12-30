@@ -147,4 +147,7 @@ public class User implements UserDetails {
         this.login = login;
         this.pass = pass;
     }
+    public void addRole(Role role) {
+        roles.add(role);
+    }
 }

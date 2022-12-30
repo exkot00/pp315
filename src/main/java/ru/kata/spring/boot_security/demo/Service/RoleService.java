@@ -10,6 +10,4 @@ public interface RoleService {
     List<Role> findAll();
 
 
-
-
 }

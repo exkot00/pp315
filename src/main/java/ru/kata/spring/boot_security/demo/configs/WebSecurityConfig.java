@@ -9,6 +9,8 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.factory.PasswordEncoderFactories;
 import org.springframework.security.crypto.password.PasswordEncoder;
+import org.thymeleaf.extras.springsecurity6.dialect.SpringSecurityDialect;
+import org.thymeleaf.spring5.SpringTemplateEngine;
 import ru.kata.spring.boot_security.demo.Service.CustomUserDetailService;
 
 @Configuration
@@ -16,8 +18,6 @@ import ru.kata.spring.boot_security.demo.Service.CustomUserDetailService;
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     private final SuccessUserHandler successUserHandler;
     private final CustomUserDetailService userDetailService;
-
-
 
     public WebSecurityConfig(SuccessUserHandler successUserHandler, CustomUserDetailService userDetailService) {
         this.successUserHandler = successUserHandler;
@@ -54,5 +54,6 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     public PasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder(8);
     }
+
 
 }
