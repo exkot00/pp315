@@ -31,6 +31,7 @@ async function newUser() {
         }
         await fetch(urlNew,method).then(() => {
             form_new.reset();
+            $('[href="#tab1"]').click();
             getAdminPage();
         });
     }

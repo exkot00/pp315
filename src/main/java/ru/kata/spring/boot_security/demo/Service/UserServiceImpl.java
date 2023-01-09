@@ -37,11 +37,10 @@ public class UserServiceImpl implements UserService, UserDetailsService {
         return userRepository.save(user);
     }
 
-
-
     @Override
     @Transactional
     public User update(User user) {
+       user.setPass(passwordEncoder.encode(user.getPass()));
        return userRepository.save(user);
     }
 
