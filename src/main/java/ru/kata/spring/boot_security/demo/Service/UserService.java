@@ -10,9 +10,9 @@ public interface UserService {
 
     User show(int id);
 
-    void save(User user);
+    User save(User user);
 
-    void update(User user);
+    User update(User user);
 
     void delete(int id);
 }

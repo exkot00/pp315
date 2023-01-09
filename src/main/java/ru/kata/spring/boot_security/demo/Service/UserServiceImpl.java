@@ -32,17 +32,17 @@ public class UserServiceImpl implements UserService, UserDetailsService {
 
     @Override
     @Transactional
-    public void save(User user) {
+    public User save(User user) {
         user.setPass(passwordEncoder.encode(user.getPass()));
-        userRepository.save(user);
+        return userRepository.save(user);
     }
 
 
 
     @Override
     @Transactional
-    public void update(User user) {
-        userRepository.save(user);
+    public User update(User user) {
+       return userRepository.save(user);
     }
 
     @Override
@@ -59,6 +59,9 @@ public class UserServiceImpl implements UserService, UserDetailsService {
         }
         return user;
     }
+
+
+
 
 }
 

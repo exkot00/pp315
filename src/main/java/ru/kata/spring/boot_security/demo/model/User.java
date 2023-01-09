@@ -1,15 +1,9 @@
 package ru.kata.spring.boot_security.demo.model;
-
-//import jakarta.persistence.*;
-
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
-
 import javax.persistence.*;
-import java.util.Collection;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
+import java.util.stream.Collectors;
 
 
 @Entity
@@ -117,9 +111,6 @@ public class User implements UserDetails {
         return roles;
     }
 
-    public void setRoles(Set<Role> roles) {
-        this.roles = roles;
-    }
 
     public String getLogin() {
         return login;
@@ -149,5 +140,23 @@ public class User implements UserDetails {
     }
     public void addRole(Role role) {
         roles.add(role);
+    }
+    public String getRoleString() {
+        return roles.stream().map(role -> role.getName().replace("ROLE_", "")).collect(Collectors.joining(" "));
+    }
+
+    public void setRoles(String[] roles) {
+        List<Role> roleSet = new ArrayList<>();
+        for (String role : roles) {
+            if (role != null) {
+                if (role.equals("ROLE_ADMIN")) {
+                    roleSet.add(new Role(1, role));
+                }
+                if (role.equals("ROLE_USER")) {
+                    roleSet.add(new Role(2, role));
+                }
+            }
+        }
+        this.roles = roleSet.stream().collect(Collectors.toSet());
     }
 }

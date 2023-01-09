@@ -17,9 +17,8 @@ public class RoleServiceImpl implements RoleService {
         return roleRepository.findAll();
     }
 
-    public Role getRoleByName(String roleName) {
-        return roleRepository.findByRoleName(roleName);
-    }
-
+//    public Role getRoleByName(String roleName) {
+//        return roleRepository.findByRoleName(roleName);
+//    }
 
 }
